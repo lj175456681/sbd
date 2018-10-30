@@ -1,7 +1,7 @@
 package com.liujie.service;
 
 
-import com.github.pagehelper.PageInfo;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.liujie.dao.po.BpTaInfo;
 
 /**
@@ -14,7 +14,7 @@ public interface IBpTaInfoService {
 
     BpTaInfo getBpTaInfo(String code);
 
-    PageInfo<BpTaInfo> getBpTaInfoList();
+    Page<BpTaInfo> getBpTaInfoList();
 
     BpTaInfo updateTaInfo(String taCode);
 }

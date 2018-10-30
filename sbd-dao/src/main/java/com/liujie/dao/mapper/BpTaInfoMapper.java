@@ -1,22 +1,9 @@
 package com.liujie.dao.mapper;
 
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.liujie.dao.po.BpTaInfo;
 
-import java.util.List;
+public interface BpTaInfoMapper extends BaseMapper<BpTaInfo>{
 
-public interface BpTaInfoMapper{
-    int deleteByPrimaryKey(String taCode);
-
-    int insert(BpTaInfo record);
-
-    int insertSelective(BpTaInfo record);
-
-    BpTaInfo selectByPrimaryKey(String taCode);
-
-    int updateByPrimaryKeySelective(BpTaInfo record);
-
-    int updateByPrimaryKey(BpTaInfo record);
-
-    List<BpTaInfo> selectTas();
 }
