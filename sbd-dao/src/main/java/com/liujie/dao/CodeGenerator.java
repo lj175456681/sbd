@@ -1,6 +1,7 @@
 package com.liujie.dao;
 
 
+import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
@@ -59,14 +60,18 @@ public class CodeGenerator {
         gc.setOutputDir(projectPath + "/sbd-dao/src/main/java");
         gc.setAuthor("jie.liu");
         gc.setOpen(false);
+        gc.setFileOverride(true);
         mpg.setGlobalConfig(gc);
+
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
+        dsc.setDbType(DbType.ORACLE);
         dsc.setUrl("jdbc:oracle:thin:@192.168.220.126:1521:hbqa11g");
-        dsc.setDriverName("oracle.jdbc.OracleDriver");
+        dsc.setDriverName("oracle.jdbc.driver.OracleDriver");
         dsc.setUsername("SIT_XM84_TRADE");
         dsc.setPassword("howbuy2015");
+        dsc.setSchemaName("SIT_XM84_TRADE");
         mpg.setDataSource(dsc);
 
         // 包配置
@@ -87,8 +92,8 @@ public class CodeGenerator {
             @Override
             public String outputFile(TableInfo tableInfo) {
                 // 自定义输入文件名称
-                return projectPath + "/mybatis-plus-sample-generator/src/main/resources/mapper/" + pc.getModuleName()
-                        + "/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
+                return projectPath + "/sbd-dao/src/main/resources/mapper/"
+                        + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
             }
         });
         cfg.setFileOutConfigList(focList);
@@ -99,11 +104,9 @@ public class CodeGenerator {
         StrategyConfig strategy = new StrategyConfig();
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
-        strategy.setSuperEntityClass("com.baomidou.mybatisplus.samples.generator.common.BaseEntity");
         strategy.setEntityLombokModel(true);
-        strategy.setSuperControllerClass("com.baomidou.mybatisplus.samples.generator.common.BaseController");
+        //表名大小写铭感
         strategy.setInclude(scanner("表名"));
-        strategy.setSuperEntityColumns("id");
         strategy.setControllerMappingHyphenStyle(true);
         strategy.setTablePrefix(pc.getModuleName() + "_");
         mpg.setStrategy(strategy);

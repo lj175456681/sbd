@@ -1,7 +1,6 @@
 package com.liujie.web.controller;
 
 
-import com.github.pagehelper.PageInfo;
 import com.liujie.dao.po.BpTaInfo;
 import com.liujie.service.IBpTaInfoService;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,12 +27,6 @@ public class TestController {
         return info;
     }
 
-
-    @RequestMapping(value = "getBpTaInfoList" ,method = RequestMethod.GET)
-    public PageInfo<BpTaInfo> getBpTaInfoList(){
-        PageInfo<BpTaInfo> list = bpTaInfoService.getBpTaInfoList();
-        return list;
-    }
 
     @RequestMapping(value = "updateTaInfo" ,method = RequestMethod.GET)
     public BpTaInfo updateBpTaInfo(){

@@ -38,6 +38,7 @@
         <druid.version>1.1.9</druid.version>
         <oracle.version>11.2.0.2.0</oracle.version>
         <mybatis.plus.version>3.0.5</mybatis.plus.version>
+        <lombok.version>1.18.0</lombok.version>
     </properties>
 
     <dependencyManagement>
@@ -108,6 +109,12 @@
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis.plus.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
             </dependency>
 
         </dependencies>
