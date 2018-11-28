@@ -3,4 +3,8 @@
 <mapper namespace="com.liujie.dao.mapper.BpFundBasicInfoMapper">
 
 
+    <select id="selectFundMap" resultType="com.liujie.dao.po.BpFundBasicInfo">
+        select * from bp_fund_basic_info
+        where rec_stat = '0' and check_flag = '1'
+    </select>
 </mapper>

@@ -1,6 +1,7 @@
 package com.liujie.service;
 
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.liujie.dao.po.BpTaInfo;
 
@@ -17,4 +18,6 @@ public interface IBpTaInfoService {
     Page<BpTaInfo> getBpTaInfoList();
 
     BpTaInfo updateTaInfo(String taCode);
+
+    IPage<BpTaInfo> queryByPage(int pageSize, int pageNo);
 }
