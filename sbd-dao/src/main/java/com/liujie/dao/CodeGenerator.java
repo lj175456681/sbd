@@ -76,7 +76,7 @@ public class CodeGenerator {
 
         // 包配置
         PackageConfig pc = new PackageConfig();
-        pc.setModuleName(scanner("模块名"));
+        pc.setModuleName("tmp");
         pc.setParent("com.liujie.dao");
         mpg.setPackageInfo(pc);
 
@@ -106,7 +106,7 @@ public class CodeGenerator {
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
         strategy.setEntityLombokModel(true);
         //表名大小写铭感
-        strategy.setInclude(scanner("表名"));
+        strategy.setInclude("AC_MULTI_FUND_TX_ACCT_REL");
         strategy.setControllerMappingHyphenStyle(true);
         strategy.setTablePrefix(pc.getModuleName() + "_");
         mpg.setStrategy(strategy);
