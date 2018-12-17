@@ -22,5 +22,4 @@ public interface BpFundBasicInfoMapper extends BaseMapper<BpFundBasicInfo> {
      */
     @MapKey("fundCode")
     Map<String,BpFundBasicInfo> selectFundMap();
-
 }

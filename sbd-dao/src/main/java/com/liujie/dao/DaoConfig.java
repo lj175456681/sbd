@@ -6,7 +6,11 @@ import com.baomidou.mybatisplus.extension.plugins.OptimisticLockerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PerformanceInterceptor;
 import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.boot.SpringBootConfiguration;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
@@ -16,8 +20,10 @@ import org.springframework.context.annotation.Profile;
  * @author : liujie
  * @Date: 2018/10/29 20:58
 */
-@Configuration
 @MapperScan("com.liujie.dao.mapper")
+@SpringBootConfiguration
+@EnableAutoConfiguration
+@ComponentScan("com.liujie.dao.mapper")
 public class DaoConfig {
 
     /**
