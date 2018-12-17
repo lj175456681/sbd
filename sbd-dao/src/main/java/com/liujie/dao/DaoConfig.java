@@ -21,9 +21,8 @@ import org.springframework.context.annotation.Profile;
  * @Date: 2018/10/29 20:58
 */
 @MapperScan("com.liujie.dao.mapper")
-@SpringBootConfiguration
+@Configuration
 @EnableAutoConfiguration
-@ComponentScan("com.liujie.dao.mapper")
 public class DaoConfig {
 
     /**
