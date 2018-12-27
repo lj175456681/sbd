@@ -40,7 +40,7 @@ public class AcMultiFundTxAcctRelMapperTest {
 
     @Test
     public void deleteTest(){
-        int affect = acMultiFundTxAcctRelMapper.deleteById(21L);
+        int affect = acMultiFundTxAcctRelMapper.deleteById(61L);
         System.out.println(affect);
     }
 

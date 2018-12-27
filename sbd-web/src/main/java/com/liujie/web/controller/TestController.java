@@ -2,7 +2,7 @@ package com.liujie.web.controller;
 
 
 import com.liujie.dao.po.BpTaInfo;
-import com.liujie.service.IBpTaInfoService;
+import com.liujie.service.biz.IBpTaInfoService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;

@@ -1,4 +1,4 @@
-package com.liujie.service.impl;
+package com.liujie.service.biz.impl;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.google.common.collect.Maps;
 import com.liujie.dao.mapper.BpTaInfoMapper;
 import com.liujie.dao.po.BpTaInfo;
-import com.liujie.service.IBpTaInfoService;
+import com.liujie.service.biz.IBpTaInfoService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -41,6 +41,7 @@ public class BpTaInfoService implements IBpTaInfoService{
     @Transactional
     public BpTaInfo updateTaInfo(String taCode) {
         BpTaInfo taInfo = getBpTaInfo(taCode);
+        taInfo.setChecker("12312312312");
         bpTaInfoMapper.updateById(taInfo);
         return getBpTaInfo(taCode);
     }
@@ -50,10 +51,10 @@ public class BpTaInfoService implements IBpTaInfoService{
         Page<BpTaInfo> page = new Page(pageNo,pageSize);
         QueryWrapper<BpTaInfo> wrapper = new QueryWrapper();
         Map<String,String> param = Maps.newHashMap();
-        param.put("recStat","0");
-        param.put("checkFlag","1");
+        param.put("rec_stat","0");
+        param.put("check_flag","1");
         wrapper.allEq(param);
-        wrapper.orderByAsc("taCode");
+        wrapper.orderByAsc("ta_code");
         IPage<BpTaInfo> result =  bpTaInfoMapper.selectPage(page,wrapper);
         return result;
     }
